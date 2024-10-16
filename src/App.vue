@@ -6,19 +6,19 @@
     </header>
 
     <nav class="filter">
-      <button @click="filter = 'all'">All tasks</button>
+      <button @click="filter = 'all'">All tasks </button>
       <button @click="filter = 'favs'">Fav tasks</button>
     </nav>
 
     <div class="task-list" v-if="filter === 'all'">
-      <p>all tasks</p>
+      <p>You have {{ taskStore.totalCount }} task left to do</p>
       <div v-for="task in taskStore.tasks">
         <TaskDetails :task="task" />
       </div>
     </div>
 
     <div class="task-list" v-if="filter === 'favs'">
-      <p>favs tasks</p>
+      <p>You have {{ taskStore.favCount }} task left to do</p>
       <div v-for="task in taskStore.favs">
         <TaskDetails :task="task" />
       </div>
